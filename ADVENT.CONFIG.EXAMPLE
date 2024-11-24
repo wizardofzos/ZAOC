@@ -1,0 +1,3 @@
+CURL_PATH = /path/to/curl                                                                                                                                                                                                                              00000200
+SESSION = you_session_key_for_auto_download_your_puzzle_input                                                                                                                                                                                          00000201
+INPUTFILES = /path/to/where/to/store/puzzle/input                                                                                                                                                                                                      00000400

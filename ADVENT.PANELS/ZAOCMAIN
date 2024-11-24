@@ -1,0 +1,38 @@
+)Attr
+ $ type(output) caps(off)
+ _ type(input) caps(on ) hilite(uscore)
+ # type(output) hilite(reverse) color(turq) caps(off)
+ @ type(output) caps(off) pas(on) intens(high) color(white)
+)Body Expand(\\)
++-\-\AOC ISPF  +-\-\
+%Command ===>_zcmd       \ \ %Scroll ===>_zscr+
++
++
++         Type ADD on the command line to add a year/day
++
++
++
++Options:      %E+Edit Solution%R+Run Solution+%S+Mark Solved
++
+%    +Year  Day Part Start              Tries Finish
+)Model
+_z+  $z   +$z +$z+  $z                +$z   +$z                                +
+)Init
+ &zscr = CSR
+ .zvars = '(zsel year day part start tries finish)'
+)Proc
+ &row = &z
+ if (&ZCMD = &Z)
+     if (&ztdsels = 0000)
+        &row = .csrrow
+        if (&row ^= &z)
+            if (&zsel = &z)
+                &zsel = S
+     if (&ztdsels ^= 0000)
+         &row = &z
+     if (&ZSEL ^= &Z)
+       if (&Zsel = '=')
+           &Zsel = &osel
+     &osel = &zsel
+ ver (&zsel,list,E,R,S,D)
+)end

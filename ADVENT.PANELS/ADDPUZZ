@@ -1,0 +1,12 @@
+)Attr
+ $ type(output) caps(off)
+ ! type(input) intens(HIGH) HILITE(USCORE)
+)Body Window(62,4)
++
+  Type year and day (no leading 0 on day) and press ENTER
+  +Year Day : !yyyy!dd+
+
+)Init
+ &zwinttl = 'Add A Puzzle'
+)Proc
+)end
