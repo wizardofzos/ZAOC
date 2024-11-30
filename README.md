@@ -42,3 +42,9 @@ You do this with the 'E' line command in the application which will open the edi
 you can use the 'R' line command to run the REXX. (this will increment the 'tries' counter)
 
 Once you've got the solution, use the 'S' line command to mark the challenge as solved.
+
+### Demo?
+
+
+https://github.com/user-attachments/assets/710a4695-f0a0-45ae-83b3-810fa3e1126a
+
