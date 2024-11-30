@@ -110,6 +110,9 @@ Address ISPExec
       "TBDELETE zaocmain"
       "TBSAVE zaocmain REPLCOPY LIBRARY(isptabl)"
     end
+    if zsel = 'C' then do
+      say "todo, read cobol, compile, run?"
+    end
   end
 
   'TBCLOSE zaocmain'
@@ -117,10 +120,17 @@ Address ISPExec
   Exit 0
 
 Add_puzzle:
-
+  T = '1'
   'Addpop row(4) column(12)'
   'Display Panel(addpuzz)'
-  'Rempop'
+  /* PF3 = no add */
+  if rc > 4 then do
+    'Rempop'
+    return
+  end
+  else do
+    'Rempop'
+  end
   /* Now we need to go out to adventofcode.com
   and get the puzzle for this day.. and the
   input file....                       */

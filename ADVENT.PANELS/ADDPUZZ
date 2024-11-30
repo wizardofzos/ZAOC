@@ -1,12 +1,16 @@
 )Attr
  $ type(output) caps(off)
  ! type(input) intens(HIGH) HILITE(USCORE)
-)Body Window(62,4)
+ % type(text) caps(off)                      color(white)
+ # type(text) caps(off)                      color(red)
+ ^ type(text) caps(off)                      color(green)
+)Body Window(62,5)
 +
-  Type year and day (no leading 0 on day) and press ENTER
-  +Year Day : !yyyy!dd+
-
+  +Year Day : !yyyy!dd+       !T+Type: 1) REXX %default
+  +            yyyy dd                 2) PL/1 #not impl.
+  +                                    3) COBOL#not impl.
+  ^    F3 = Cancel / ENTER = Get /yyyy/day/dd/input
 )Init
- &zwinttl = 'Add A Puzzle'
+ &zwinttl = 'Add puzzle input from adventofcode.com'
 )Proc
 )end

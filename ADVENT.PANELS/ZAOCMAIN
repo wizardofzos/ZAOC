@@ -34,5 +34,5 @@ _z+  $z   +$z +$z+  $z                +$z   +$z                                +
        if (&Zsel = '=')
            &Zsel = &osel
      &osel = &zsel
- ver (&zsel,list,E,R,S,D)
+ ver (&zsel,list,E,R,S,D,C)
 )end
