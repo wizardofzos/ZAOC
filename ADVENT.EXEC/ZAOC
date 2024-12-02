@@ -90,6 +90,11 @@ Address ISPExec
     ys = substr(year,3,2)
     rx = solutions"(Y"ys"D"day"P"part")'"
     if zsel = 'E' then do
+      if start = '' then do
+        start = DATE("E") TIME()
+        "TBPUT zaocmain"
+        "TBSAVE zaocmain REPLCOPY LIBRARY(isptabl)"
+      end
       'Edit dataset('rx')'
     end
     if zsel = 'R' then do
@@ -144,7 +149,7 @@ Add_puzzle:
   if x = 0 then do
     year = yyyy
     day  = dd
-    start  = DATE("E") TIME()
+    start  = ''
     tries  = 0
     finish = ''
     part   = 1
@@ -169,15 +174,22 @@ Add_puzzle:
   ddname1 = "ZAOC#RX1"
   ddname2 = "ZAOC#RX2"
   ys = substr(y,3,2)
+  plink = 'https://adventofcode.com/'yyyy'/day/'dd
+  extras = 40 - length(plink)
+  filler = ''
+  do f = 1 to extras
+    filler = filler || ' '
+  end
   s.1 = "/*--------------------------------------------[REXX]"
   s.2 = "| Made with ZAOC by wizard@zdevops.com             |"
-  s.3 = "+-------------------------------------------------*/"
-  s.4 = 'say "Advent of Code' year 'day' day'"'
-  s.5 = "x = bpxwunix('cat "inputfiles"/y"y"d"d"',,file.,se.)"
-  s.6 = "do i = 1 to file.0"
-  s.7 = "  say file.i"
-  s.8 = "end"
-  s.0 = 8
+  s.3 = "| Puzzle: "plink filler || "|"
+  s.4 = "+-------------------------------------------------*/"
+  s.5 = 'say "Advent of Code' year 'day' day'"'
+  s.6 = "x = bpxwunix('cat "inputfiles"/y"y"d"d"',,file.,se.)"
+  s.7 = "do i = 1 to file.0"
+  s.8 = "  say file.i"
+  s.9 = "end"
+  s.0 = 9
   "Alloc f("ddname1") shr reuse ds("solutions"(Y"ys"d"d"p1)')"
   'Execio * diskw' ddname1 '(finis stem s.'
   'Free  f('ddname1')'
